@@ -1,20 +1,131 @@
-import { useState } from "react"
-const App = () => {
-  const [count,setCount] = useState(0)
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { useState, useEffect } from "react";
+import { jwtVerify } from "jose";
+import Cookies from "js-cookie";
+import axios from "axios";
+import Register from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
+import Home from "./pages/Home";
+import Courses from "./pages/course/Courses";
+import FundamentalGambar from "./pages/module/fundamental/FundamentalGambar";
+import Dashboard from "./pages/Dashboard";
+import Checkout from "./pages/course/Checkout";
+import DetailCourses from "./pages/course/DetailCourses";
 
-  const HandleClick = () => {
-    setCount(count + 1)
+const verifyToken = async (accessToken, refreshToken) => {
+  try {
+    const { payload: payloadAccessToken } = await jwtVerify(
+      accessToken,
+      new TextEncoder().encode("D3V1N@634824ATKEL"),
+    );
+    const { payload: payloadRefreshToken } = await jwtVerify(
+      refreshToken,
+      new TextEncoder().encode("D3V1N@634824RTKEL"),
+    );
+    const now = Date.now() / 1000;
+    return payloadAccessToken.exp > now && payloadRefreshToken.exp > now;
+  } catch (error) {
+    return false;
   }
-  return (
-    <div className=" text-white">
-      <div className=" justify-center items-center grid space-y-5 mt-52">
-         <p className=" text-center">Extension Creator <a href="https://www.instagram.com/nandakaws/" className=" duration-200 hover:text-purple-500">NandaKaws</a></p>
-         <h1 className=" text-purple-500 text-5xl font-bold  "><span className=" text-white">Lets</span>code!</h1>
-         <button onClick={HandleClick} className=" rounded-lg font-bold text-xl bg-purple-500">Click</button>
-         <h1 className=" text-center font-bold  ">{count}</h1>
-      </div>
-    </div>
-  )
-}
+};
 
-export default App
+const refreshTokenAPI = async () => {
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/ez-link/v1/user/refresh-token",
+      { refresh_token: Cookies.get("refresh_token") },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+    const resp = response.data;
+    Cookies.set("access_token", resp.data.token.access_token);
+    return { refreshed: resp.success };
+  } catch (error) {
+    return { refreshed: error.response.data.success };
+  }
+};
+
+const useAuth = () => {
+  const [auth, setAuth] = useState(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const accessToken = Cookies.get("access_token");
+      const refreshToken = Cookies.get("refresh_token");
+
+      if (!accessToken || !refreshToken) {
+        setAuth(false);
+        Cookies.remove("access_token");
+        Cookies.remove("refresh_token");
+        return;
+      }
+
+      const isValid = await verifyToken(accessToken, refreshToken);
+
+      if (isValid) {
+        setAuth(true);
+      } else {
+        const refreshTokenResult = await refreshTokenAPI();
+
+        if (refreshTokenResult.refreshed) {
+          setAuth(true);
+        } else {
+          Cookies.remove("access_token");
+          Cookies.remove("refresh_token");
+          setAuth(false);
+        }
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  return auth;
+};
+
+const PrivateRoute = (prop) => {
+  let { element } = prop;
+  const auth = useAuth();
+
+  if (auth === null) {
+    return null;
+  }
+
+  return auth ? element : <Navigate to="/login" />;
+};
+
+const App = () => {
+  const auth = useAuth();
+
+  if (auth === null) {
+    return null;
+  }
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/detailCourses" element={<DetailCourses />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/study/fundamental-gambar"
+          element={<FundamentalGambar />}
+        />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
