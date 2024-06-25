@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
 import Tags from "./Tags";
 
 const CourseCard = (prop) => {
-  const { image, title, artist, tags } = prop;
+  const { image, title, artist, tags, price } = prop;
   return (
-    <div className="h-[400px] w-96 rounded-lg border-2 border-indigo-300 bg-violet-200 p-5 shadow-md transition-all duration-150 hover:scale-105 hover:bg-violet-300">
+    <Link
+      to="/study/fundamental-gambar"
+      className="relative h-[400px] w-96 rounded-xl border-2 border-indigo-300 bg-violet-100 p-5 shadow-md transition-all duration-150 hover:scale-105 hover:bg-violet-200"
+    >
       <div className="relative h-fit w-full">
         <img
           src={image}
@@ -16,7 +20,17 @@ const CourseCard = (prop) => {
         <p className="text-slate-500">artist :{artist}</p>
         <Tags tags={tags}></Tags>
       </div>
-    </div>
+
+      {price == 0 ? (
+        <p className="absolute bottom-5 right-5 text-center font-extrabold text-indigo-800">
+          Free
+        </p>
+      ) : (
+        <p className="absolute bottom-5 right-5 text-center font-bold text-indigo-800">
+          Rp. {price}
+        </p>
+      )}
+    </Link>
   );
 };
 
