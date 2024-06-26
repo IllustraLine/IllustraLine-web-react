@@ -1,4 +1,7 @@
 import { useForm } from "react-hook-form";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const AuthForm = (prop) => {
   const { type } = prop;
@@ -9,9 +12,92 @@ const AuthForm = (prop) => {
     watch,
   } = useForm();
 
+  const navigate = useNavigate()
+
+  const accountActiveApi = (email) => {
+    return axios.post('http://127.0.0.1:5000/illustra-line/v1/auth/email-verify', { 'email': email }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      const resp = response.data;
+      return { success: resp.success, data: resp };
+    })
+    .catch(error => {
+      return { success: error.response.data.success, data: error.response.data };
+    });
+  }
+
+  const loginApi = (email, password) => {
+    return axios.post('http://127.0.0.1:5000/illustra-line/v1/auth/login', { 'email': email, 'password': password }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      const resp = response.data;
+      return { success: resp.success, data: resp };
+    })
+    .catch(error => {
+      return { success: error.response.data.success, data: error.response.data };
+    });
+  };
+
+  const registerApi = (email, username, password, confirmPassword) => {
+    return axios.post('http://127.0.0.1:5000/illustra-line/v1/auth/register', { 'email': email, 'username': username, 'password': password, 'confirm_password': confirmPassword }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      const resp = response.data;
+      return { success: resp.success, data: resp };
+    })
+    .catch(error => {
+      return { success: error.response.data.success, data: error.response.data };
+    });
+  };
+
   const onSubmit = (data) => {
     console.log(data);
-    // Handle form submission logic here
+    if (type === 'login') {
+      loginApi(data.email, data.password).then(result => {
+        if (result.success) {
+          Cookies.set('access_token', result.data.data.token.access_token);
+          Cookies.set('refresh_token', result.data.data.token.refresh_token);
+          navigate('/')
+        } else {
+          if (result.success === false && result.data.message === 'user is not active' && result.data.status_code === 400) {
+            accountActiveApi(data.email).then(result => {
+              if (result.success) {
+                alert('check email')
+              }
+            }).catch(error => {
+              console.log(error); // Menangani error jika ada
+            });
+          }
+        }
+      }).catch(error => {
+        console.log(error); // Menangani error jika ada
+      });
+    } else {
+      registerApi(data.email, data.username, data.password, data.confirmPassword)
+      .then(result => {
+        if (result.success) {
+          accountActiveApi(data.email).then(result => {
+            if (result.success) {
+              alert('check email')
+            }
+          }).catch(error => {
+            console.log(error); // Menangani error jika ada
+          });
+        }
+      })
+      .catch(error => {
+        console.log(error); // Menangani error jika ada
+      });
+    }
   };
 
   const passwordValidation = (value) => {
