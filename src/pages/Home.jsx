@@ -11,22 +11,25 @@ const Home = () => {
       image: gesture, // Ganti dengan path gambar yang sesuai
       artist: "john doe",
       title: "Introduction to Illustration",
-      tags: "beginner",
+      tags: ["Beginner"],
       price: 0,
+      link: "study/fundamental-gambar",
     },
     {
       image: gesture, // Ganti dengan path gambar yang sesuai
       artist: "john doe",
       title: "Gesture Drawing",
-      tags: "beginner",
+      tags: ["Beginner"],
       price: 0,
+      link: "study/fundamental-gambar",
     },
     {
       image: gesture, // Ganti dengan path gambar yang sesuai
       artist: "john doe",
       title: "Shape Drawing",
-      tags: "beginner",
+      tags: ["Beginner"],
       price: 0,
+      link: "study/fundamental-gambar",
     },
   ];
 
@@ -39,7 +42,7 @@ const Home = () => {
           <h1 className="pb-5 text-4xl font-bold">
             From <span className="font-bold text-green-500">Start</span> to {""}
             <span className="font-bold text-orange-500">Mastery</span>:
-            Illustraline is Here for{" "}
+            IllustraLine is Here for{" "}
             <span className="font-bold text-indigo-500 underline">You</span>
           </h1>
           <p>
@@ -79,6 +82,7 @@ const Home = () => {
               artist={course.artist}
               tags={course.tags}
               price={course.price}
+              link={course.link}
             />
           ))}
         </div>
