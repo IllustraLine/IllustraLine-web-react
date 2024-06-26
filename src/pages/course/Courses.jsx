@@ -3,15 +3,18 @@ import Navbar from "../../components/layout/Navbar";
 import Page from "../../components/layout/Page";
 import Tabs from "../../components/layout/Tabs";
 import CourseCard from "../../components/ui/CourseCard";
+import CourseData from "../../DummyData.json";
 
 const categories = [
   "Beginner",
   "Advanced",
-  "Software ",
-  "Creative Skills",
   "Professional",
+  "Software",
+  "Creative Skills",
   "Techniques and Styles",
   "Illustration Business",
+  "Lighting", // Additional tags that could be in the JSON
+  "Color Theory", // Additional tags that could be in the JSON
 ];
 
 const Courses = () => {
@@ -21,29 +24,10 @@ const Courses = () => {
     setSelectedCategory(category);
   };
 
-  const courses = [
-    // Example data
-    {
-      image: "image-url-1",
-      title: "Basic Drawing Skills",
-      artist: "John Doe",
-      tags: ["Beginner"],
-      price: 0,
-    },
-    {
-      image: "image-url-2",
-      title: "Advanced Shading",
-      artist: "Jane Smith",
-      tags: ["Advanced", "Lighting"],
-      price: 200000,
-    },
-    // Add more course data here
-  ];
-
   const filteredCourses =
     selectedCategory === "All"
-      ? courses
-      : courses.filter((course) => course.tags.includes(selectedCategory));
+      ? CourseData
+      : CourseData.filter((course) => course.tags.includes(selectedCategory));
 
   return (
     <Page>

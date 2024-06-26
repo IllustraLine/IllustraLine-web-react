@@ -1,12 +1,24 @@
 import HeroSection from "../components/layout/HeroSection";
 import Navbar from "../components/layout/Navbar";
-import CourseCard from "../components/ui/CourseCard";
-import gesture from "../assets/image/figure.webp";
 import Page from "../components/layout/Page";
 import CoursesCard from "../assets/image/coursescard.png";
+import CourseSection from "../components/layout/CourseSection";
+import coursesData from "../DummyData.json";
+import CourseCard from "../components/ui/CourseCard";
+import gesture from "../assets/image/figure.webp";
 
 const Home = () => {
-  const courses = [
+  const beginnerCourses = coursesData.filter(
+    (course) => course.category === "Beginner",
+  );
+  const advancedCourses = coursesData.filter(
+    (course) => course.category === "Advanced",
+  );
+  const professionalCourses = coursesData.filter(
+    (course) => course.category === "Professional",
+  );
+
+  const freeCourses = [
     {
       image: gesture, // Ganti dengan path gambar yang sesuai
       artist: "john doe",
@@ -59,7 +71,7 @@ const Home = () => {
           />
         </div>
       </section>
-      <section className="mx-auto w-fit py-20">
+      <section className="mx-auto w-full py-20">
         <div className="my-5">
           <h1 className="py-2 text-center text-xl font-bold sm:text-3xl">
             Are you a beginner?
@@ -73,8 +85,8 @@ const Home = () => {
             <span className="font-bold text-indigo-600">Beginner</span>
           </p>
         </div>
-        <div className="mx-auto flex w-fit flex-col gap-5 pt-2 sm:flex-row">
-          {courses.map((course, index) => (
+        <div className="mx-auto flex w-full flex-col justify-around gap-5 pt-2 sm:flex-row">
+          {freeCourses.map((course, index) => (
             <CourseCard
               key={index}
               image={course.image}
@@ -87,6 +99,9 @@ const Home = () => {
           ))}
         </div>
       </section>
+      <CourseSection courses={beginnerCourses} category="Beginner" />
+      <CourseSection courses={advancedCourses} category="Advanced" />
+      <CourseSection courses={professionalCourses} category="Professional" />
     </Page>
   );
 };

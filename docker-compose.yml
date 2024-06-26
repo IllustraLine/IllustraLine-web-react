@@ -2,11 +2,13 @@ version: "3"
 
 services:
   web:
-    image: nexblu/illustra-line-api:24.7.1
+    image: nexblu/illustra-line-api:24.7.5
     ports:
       - "5000"
     depends_on:
       - db
+    environment:
+      - POSTGRESQL_URL=postgresql://postgres:postgres@db/IllustraLine
     volumes:
       - .:/app
 

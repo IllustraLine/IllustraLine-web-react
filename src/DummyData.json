@@ -1,0 +1,137 @@
+[
+  {
+    "image": "image-url-1",
+    "title": "Introduction to Illustration",
+    "artist": "John Doe",
+    "category": "Beginner",
+    "tags": ["Beginner", "Illustration"],
+    "price": 50000,
+    "link": "study/fundamental-illustration"
+  },
+  {
+    "image": "image-url-2",
+    "title": "Gesture Drawing",
+    "artist": "Jane Smith",
+    "category": "Beginner",
+    "tags": ["Beginner", "Drawing", "Gesture"],
+    "price": 60000,
+    "link": "study/fundamental-gesture"
+  },
+  {
+    "image": "image-url-3",
+    "title": "Shape Drawing",
+    "artist": "Robert Brown",
+    "category": "Beginner",
+    "tags": ["Beginner", "Drawing", "Shapes"],
+    "price": 55000,
+    "link": "study/fundamental-shapes"
+  },
+  {
+    "image": "image-url-4",
+    "title": "Advanced Anatomy",
+    "artist": "Alice Johnson",
+    "category": "Advanced",
+    "tags": ["Advanced", "Anatomy"],
+    "price": 150000,
+    "link": "study/advanced-anatomy"
+  },
+  {
+    "image": "image-url-5",
+    "title": "Lighting Techniques",
+    "artist": "Chris Lee",
+    "category": "Advanced",
+    "tags": ["Advanced", "Lighting"],
+    "price": 180000,
+    "link": "study/advanced-lighting"
+  },
+  {
+    "image": "image-url-6",
+    "title": "Color Theory",
+    "artist": "Patricia Kim",
+    "category": "Advanced",
+    "tags": ["Advanced", "Color"],
+    "price": 200000,
+    "link": "study/advanced-color"
+  },
+  {
+    "image": "image-url-7",
+    "title": "Professional Illustration",
+    "artist": "John Doe",
+    "category": "Professional",
+    "tags": ["Professional", "Illustration"],
+    "price": 300000,
+    "link": "study/professional-illustration"
+  },
+  {
+    "image": "image-url-8",
+    "title": "Character Design",
+    "artist": "Jane Smith",
+    "category": "Professional",
+    "tags": ["Professional", "Character Design"],
+    "price": 350000,
+    "link": "study/professional-character"
+  },
+  {
+    "image": "image-url-9",
+    "title": "Environmental Concept Art",
+    "artist": "Robert Brown",
+    "category": "Professional",
+    "tags": ["Professional", "Concept Art"],
+    "price": 400000,
+    "link": "study/professional-concept"
+  },
+  {
+    "image": "image-url-10",
+    "title": "Basic Perspective Drawing",
+    "artist": "Alice Johnson",
+    "category": "Beginner",
+    "tags": ["Beginner", "Perspective"],
+    "price": 45000,
+    "link": "study/fundamental-perspective"
+  },
+  {
+    "image": "image-url-11",
+    "title": "Intermediate Perspective Drawing",
+    "artist": "Chris Lee",
+    "category": "Advanced",
+    "tags": ["Advanced", "Perspective"],
+    "price": 160000,
+    "link": "study/advanced-perspective"
+  },
+  {
+    "image": "image-url-12",
+    "title": "Advanced Portrait Drawing",
+    "artist": "Patricia Kim",
+    "category": "Advanced",
+    "tags": ["Advanced", "Portrait"],
+    "price": 190000,
+    "link": "study/advanced-portrait"
+  },
+  {
+    "image": "image-url-13",
+    "title": "Professional Concept Art",
+    "artist": "John Doe",
+    "category": "Professional",
+    "tags": ["Professional", "Concept Art"],
+    "price": 500000,
+    "link": "study/professional-concept-art"
+  },
+  {
+    "image": "image-url-14",
+    "title": "Digital Painting",
+    "artist": "Jane Smith",
+    "category": "Advanced",
+    "tags": ["Advanced", "Digital Painting"],
+    "price": 220000,
+    "link": "study/advanced-digital-painting"
+  },
+  {
+    "image": "image-url-15",
+    "title": "Professional Animation",
+    "artist": "Robert Brown",
+    "category": "Professional",
+    "tags": ["Professional", "Animation"],
+    "price": 600000,
+    "link": "study/professional-animation"
+  }
+]
