@@ -32,14 +32,14 @@ const Courses = () => {
   return (
     <Page>
       <Navbar />
-      <section className="mx-auto min-h-screen w-screen max-w-screen-xl">
-        <div className="flex h-64 w-full rounded-lg bg-red-600">
+      <section className="mx-auto min-h-screen">
+        <div className="mx-auto flex h-64 w-full max-w-screen-xl rounded-lg bg-red-600">
           <h1 className="m-auto w-fit text-3xl font-extrabold">Courses</h1>
         </div>
         <Tabs categories={categories} onTabChange={handleTabChange} />
 
         {filteredCourses.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid w-full grid-cols-1 place-items-center gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3">
             {filteredCourses.map((course, index) => (
               <CourseCard
                 key={index}
