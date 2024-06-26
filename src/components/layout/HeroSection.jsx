@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="mx-auto h-[500px] w-screen max-w-screen-xl rounded-lg border-2 border-violet-100 bg-[url('assets/image/gradientBG.png')] bg-cover bg-center p-5">
+    <section className="mx-auto h-[550px] w-screen max-w-screen-xl rounded-lg border-2 border-violet-100 bg-[url('assets/image/gradientBG.png')] bg-cover bg-center p-5">
       <div className="flex h-full w-full flex-col items-center rounded-lg border border-gray-100 bg-opacity-10 backdrop-blur-sm backdrop-filter">
         <div className="my-auto flex h-fit w-full flex-col items-center gap-5 text-center">
           <h1 className="text-5xl font-bold">
