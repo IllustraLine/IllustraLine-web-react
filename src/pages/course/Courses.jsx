@@ -10,9 +10,7 @@ const categories = [
   "Advanced",
   "Professional",
   "Software",
-  "Creative Skills",
-  "Techniques and Styles",
-  "Illustration Business",
+
   "Lighting", // Additional tags that could be in the JSON
   "Color Theory", // Additional tags that could be in the JSON
 ];
@@ -39,7 +37,7 @@ const Courses = () => {
         <Tabs categories={categories} onTabChange={handleTabChange} />
 
         {filteredCourses.length > 0 ? (
-          <div className="grid w-full grid-cols-1 place-items-center gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid w-full grid-cols-1 place-items-center gap-6 border-t-2 border-slate-400 p-4 pt-10 sm:grid-cols-2 lg:grid-cols-3">
             {filteredCourses.map((course, index) => (
               <CourseCard
                 key={index}

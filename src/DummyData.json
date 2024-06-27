@@ -1,6 +1,6 @@
 [
   {
-    "image": "image-url-1",
+    "image": "https://plus.unsplash.com/premium_photo-1682125139523-92d7def89cd1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aWxsdXN0cmF0aW9ufGVufDB8fDB8fHww",
     "title": "Introduction to Illustration",
     "artist": "John Doe",
     "category": "Beginner",
@@ -9,7 +9,7 @@
     "link": "study/fundamental-illustration"
   },
   {
-    "image": "image-url-2",
+    "image": "https://www.pexels.com/photo/people-taking-photo-1598231/",
     "title": "Gesture Drawing",
     "artist": "Jane Smith",
     "category": "Beginner",

@@ -6,7 +6,7 @@ const onLogin = false;
 
 export default function Navbar() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 top-0 z-20 mx-auto h-16 w-screen bg-white py-2 shadow-sm">
+    <nav className="fixed bottom-0 left-0 right-0 top-0 z-20 h-16 w-screen bg-white py-2 shadow-sm sm:mx-auto">
       <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-5">
         <div className="flex w-fit items-center gap-4">
           <Link to="/" className="text-3xl font-black">

@@ -49,25 +49,25 @@ const Home = () => {
     <Page>
       <Navbar />
       <HeroSection />
-      <section className="full mx-auto flex h-screen w-[80%] flex-col items-center justify-between sm:flex-row">
-        <div className="w-[45%]">
-          <h1 className="pb-5 text-4xl font-bold">
+      <section className="full mx-auto flex h-screen w-full flex-col items-center justify-between sm:flex-row md:w-[90%]">
+        <div className="py-10 sm:w-[45%]">
+          <h1 className="sm:w- w-full pb-5 text-center text-4xl font-bold sm:text-start">
             From <span className="font-bold text-green-500">Start</span> to {""}
             <span className="font-bold text-orange-500">Mastery</span>:
             IllustraLine is Here for{" "}
             <span className="font-bold text-indigo-500 underline">You</span>
           </h1>
-          <p>
+          <p className="text-center text-sm sm:text-start">
             IllustraLine supports your creative journey from beginner to
             advanced. Find the right course for every stage of your development
             and become the illustrator you aspire to be!
           </p>
         </div>
-        <div>
+        <div className="w-screen md:w-fit">
           <img
             src={CoursesCard}
             alt="courses"
-            className="object-fit aspect-auto h-96 w-fit object-cover object-center shadow-sm"
+            className="object-fit aspect-auto h-96 w-screen object-contain object-center shadow-sm sm:w-fit sm:object-cover"
           />
         </div>
       </section>

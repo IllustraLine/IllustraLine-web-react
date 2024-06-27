@@ -40,7 +40,7 @@ const AuthForm = (prop) => {
   const loginApi = (email, password) => {
     return axios
       .post(
-        "http://127.0.0.1:52120/illustra-line/v1/auth/login",
+        "http://localhost:63576/illustra-line/v1/auth/login",
         { email: email, password: password },
         {
           headers: {
@@ -63,7 +63,7 @@ const AuthForm = (prop) => {
   const registerApi = (email, username, password, confirmPassword) => {
     return axios
       .post(
-        "http://127.0.0.1:5000/illustra-line/v1/auth/register",
+        "http://localhost:63576/illustra-line/v1/auth/register",
         {
           email: email,
           username: username,
