@@ -29,15 +29,15 @@ const CourseSection = ({ courses, category }) => {
       break;
   }
   return (
-    <div className="relative mt-5 flex h-full w-fit gap-10 px-5 py-20">
-      <div className="flex flex-col items-center justify-center pl-10">
-        <h1 className={`text-4xl font-black`}>
+    <div className="relative mt-5 flex h-full w-fit flex-col gap-10 md:px-5 md:py-20 lg:flex-row">
+      <div className="flex flex-col items-center justify-center md:pl-10">
+        <h1 className={`text-lg font-black md:text-4xl`}>
           Course for <span className={`${color}`}>{title}</span>
         </h1>
-        <p>{description}</p>
+        <p className="text-center sm:text-start">{description}</p>
       </div>
 
-      <div className="flex gap-5">
+      <div className="flex flex-col items-center gap-5 lg:flex-row">
         {courses.slice(0, 2).map((course, index) => (
           <CourseCard
             key={index}
@@ -46,7 +46,6 @@ const CourseSection = ({ courses, category }) => {
             artist={course.artist}
             tags={course.tags}
             price={course.price}
-            link={course.link}
           />
         ))}
       </div>

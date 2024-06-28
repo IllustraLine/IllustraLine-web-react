@@ -71,7 +71,7 @@ const Home = () => {
           />
         </div>
       </section>
-      <section className="mx-auto w-full py-20">
+      <section className="mx-auto flex w-full flex-col items-center py-20">
         <div className="my-5">
           <h1 className="py-2 text-center text-xl font-bold sm:text-3xl">
             Are you a beginner?
@@ -85,7 +85,7 @@ const Home = () => {
             <span className="font-bold text-indigo-600">Beginner</span>
           </p>
         </div>
-        <div className="mx-auto flex w-full flex-col justify-around gap-5 pt-2 sm:flex-row">
+        <div className="mx-auto flex w-full flex-col place-items-center items-center justify-around gap-5 pt-2 sm:flex-row">
           {freeCourses.map((course, index) => (
             <CourseCard
               key={index}

@@ -46,7 +46,6 @@ const Courses = () => {
                 artist={course.artist}
                 tags={course.tags}
                 price={course.price}
-                link={course.link}
               />
             ))}
           </div>

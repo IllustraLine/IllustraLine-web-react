@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import Tags from "./Tags";
 
 const CourseCard = (prop) => {
-  const { image, title, artist, tags, price} = prop;
+  const { image, title, artist, tags, price } = prop;
   return (
     <Link
-      to={`courses/detail/${title}`}
-      className="relative h-[400px] w-96 rounded-xl border-2 border-indigo-200 bg-violet-50 p-5 shadow-md transition-all duration-150 hover:scale-105 hover:bg-violet-100"
+      to={`/courses/detail/${title}`}
+      className="relative h-96 w-72 rounded-xl border-2 border-indigo-200 bg-violet-50 p-5 shadow-md transition-all duration-150 hover:scale-105 hover:bg-violet-100 sm:h-[400px] sm:w-96 sm:scale-100"
     >
       <div className="relative h-fit w-full">
         <img
@@ -18,7 +18,7 @@ const CourseCard = (prop) => {
       <div className="flex flex-col gap-1">
         <h1 className="pt-2 text-xl font-bold">{title}</h1>
         <p className="text-slate-500">artist :{artist}</p>
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap items-center justify-center gap-1">
           {tags.map((tag, index) => (
             <Tags key={index} tags={tag}></Tags>
           ))}
