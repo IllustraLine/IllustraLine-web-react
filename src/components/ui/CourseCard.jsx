@@ -14,7 +14,7 @@ const CourseCard = (prop) => {
           alt={title}
           className="object-fit h-60 w-full rounded-lg border-2 border-slate-400 object-cover object-center"
         />
-      </div>
+      </div>  
       <div className="flex flex-col gap-1">
         <h1 className="pt-2 text-xl font-bold">{title}</h1>
         <p className="text-slate-500">artist :{artist}</p>

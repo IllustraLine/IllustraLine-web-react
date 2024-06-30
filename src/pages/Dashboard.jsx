@@ -7,11 +7,6 @@ const Dashboard = () => {
     name: "Erikghafari",
     wallet: 1000000,
   };
-  const categories = ["On-going", "Finished"];
-
-  const handleTabChange = (category) => {
-    setSelectedCategory(category);
-  };
 
   return (
     <Page>
