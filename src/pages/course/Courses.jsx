@@ -31,8 +31,10 @@ const Courses = () => {
     <Page>
       <Navbar />
       <section className="mx-auto min-h-screen">
-        <div className="mx-auto flex h-64 w-full max-w-screen-xl rounded-lg bg-red-600">
-          <h1 className="m-auto w-fit text-3xl font-extrabold">Courses</h1>
+        <div className="mx-auto flex h-28 w-full max-w-screen-xl rounded-lg bg-cover bg-center">
+          <h1 className="m-auto w-fit text-5xl font-extrabold text-indigo-600">
+            Courses
+          </h1>
         </div>
         <Tabs categories={categories} onTabChange={handleTabChange} />
 
