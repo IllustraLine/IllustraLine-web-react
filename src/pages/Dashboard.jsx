@@ -1,6 +1,5 @@
 import Navbar from "../components/layout/Navbar";
 import Page from "../components/layout/Page";
-import Tabs from "../components/layout/Tabs";
 
 const Dashboard = () => {
   const user = {
@@ -28,9 +27,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <main className="mt-5 min-h-screen w-full bg-red-50">
-          <Tabs categories={categories} onTabChange={handleTabChange}></Tabs>
-        </main>
+        <main className="mt-5 min-h-screen w-full bg-red-50"></main>
       </section>
     </Page>
   );
